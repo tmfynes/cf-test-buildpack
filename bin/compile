@@ -64,12 +64,12 @@ echo "The build pack is situated at [$BUILD_PACK_DIR]"
 #echo "CPU Info"
 #cat /proc/cpuinfo
 
-#echo "Look for staging_info.yml file"
-#cat "$BUILD_DIR/staging_info.yml"
+echo "Look for staging_info.yml file"
+cat "$BUILD_DIR/staging_info.yml"
 
-#cd ../
-#echo "Creating start script"
-#cat > "$BUILD_DIR/start.sh" <<EOF
+cd ../
+echo "Creating start script"
+cat > "$BUILD_DIR/start.sh" <<EOF
 #!/bin/bash
 #
 # Start Python Web Server & SSH Reverse Tunnel
