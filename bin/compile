@@ -14,8 +14,6 @@ echo "Downloading JBoss5"
 if [ -f $CACHE_DIR/jboss5.zip ]; then
   echo "JBoss5.zip found in cache"
 else
-  echo "Downloading JBoss5 (not cached)" 
-  echo "cache dir = $CACHE_DIR"
   wget -O $CACHE_DIR/jboss5.zip http://jboss5binary.fynesy.com/jboss-5.1.0.GA-jdk6.zip
 
 fi
