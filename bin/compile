@@ -10,10 +10,10 @@ echo "All arguments [$@]"
 
 
 echo "Downloading JBoss5"
-wget -O /home/vcap/app/jboss5.zip http://jboss5binary.fynesy.com/jboss-5.1.0.GA-jdk6.zip
+wget -O /tmp/jboss5.zip http://jboss5binary.fynesy.com/jboss-5.1.0.GA-jdk6.zip
 
 echo "Extracting JBoss5"
-unzip /home/vcap/app/jboss5.zip -d /home/vcap/app/
+unzip /tmp/jboss5.zip -d /home/vcap/app/
 
 
 if [ ! -d "$BUILD_DIR" ]; then
