@@ -17,10 +17,11 @@ else
 
 fi
 
-
-
 echo "Extracting JBoss5"
 unzip $CACHE_DIR/jboss5.zip -d $BUILD_DIR
+
+echo "Extracting jdk16"
+tar zxvf $BUILDPACK_CACHE/openjdk-1.6.0_27.tar.gz
 
 
 if [ ! -d "$BUILD_DIR" ]; then
