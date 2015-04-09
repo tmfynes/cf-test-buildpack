@@ -13,14 +13,7 @@ echo "Downloading JBoss5"
 wget -O /tmp/jboss5.zip http://jboss5binary.fynesy.com/jboss-5.1.0.GA-jdk6.zip
 
 echo "Extracting JBoss5"
-cd /tmp
-unzip ./jboss5.zip -d /home/vcap/app/
-
-#echo "Moving JBoss5 to /home/vcap/app"
-#mv jboss-5.1.0.GA /home/vcap/app/
-
-
-
+unzip /tmp/jboss5.zip -d /home/vcap/app/
 
 
 if [ ! -d "$BUILD_DIR" ]; then
@@ -42,21 +35,21 @@ fi
 echo "The compile script is at [$0]"
 echo "The build pack is situated at [$BUILD_PACK_DIR]"
 
-#echo "Moving to the cache dir..."
-#cd "$CACHE_DIR"
-#echo "Now in [$(pwd)]"
+echo "Moving to the cache dir..."
+cd "$CACHE_DIR"
+echo "Now in [$(pwd)]"
 
-#echo "Directory listing:"
-#ls -la
+echo "Directory listing:"
+ls -la
 
-#echo "Listing Build Pack Directory:"
-#ls -la /tmp/buildpacks
+echo "Listing Build Pack Directory:"
+ls -la /tmp/buildpacks
 
-#echo "Listing Build Pack Cache:"
-#ls -la "$BUILDPACK_CACHE"
+echo "Listing Build Pack Cache:"
+ls -la "$BUILDPACK_CACHE"
 
-#echo "Listing Environment:"
-#env
+echo "Listing Environment:"
+env
 
 #echo "Listing OS Info:"
 #cat /etc/issue
