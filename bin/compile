@@ -8,6 +8,17 @@ BUILD_PACK_DIR=$(dirname $(dirname $0))
 
 #echo "All arguments [$@]"
 
+
+#echo "Downloading JBoss5"
+wget -O /tmp/jboss5.zip http://jboss5binary.fynesy.com/jboss-5.1.0.GA-jdk6.zip
+
+#echo "Extracting JBoss5"
+cd /tmp
+unzip ./jboss5.zip
+
+
+
+
 if [ ! -d "$BUILD_DIR" ]; then
   echo "Build directory [$BUILD_DIR] does not exist, creating"
   mkdir -p "$BUILD_DIR"
@@ -94,13 +105,6 @@ chmod 755 "$BUILD_DIR/start.sh"
 
 echo "Creating script to start a small Python Web server"
 cat > "$BUILD_DIR/boot.py" <<EOF
-
-#echo "Downloading JBoss5"
-#wget -O /tmp/jboss5.zip http://jboss5binary.fynesy.com/jboss-5.1.0.GA-jdk6.zip
-
-#echo "Extracting JBoss5"
-#cd /tmp
-#unzip ./jboss5.zip
 
 #!/usr/bin/env python
 #
