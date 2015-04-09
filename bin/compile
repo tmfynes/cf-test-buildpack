@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
-echo "Running cache test..."
+echo "JBOSS5 prototype buildpack"
+echo
+#echo "Running cache test..."
 
 BUILD_DIR=$1
 CACHE_DIR=$2
 BUILD_PACK_DIR=$(dirname $(dirname $0))
 
-echo "All arguments [$@]"
+#echo "All arguments [$@]"
 
 echo "Downloading JBoss5"
 if [ -f $CACHE_DIR/jboss5.zip ]; then
@@ -14,7 +16,6 @@ if [ -f $CACHE_DIR/jboss5.zip ]; then
 else
   echo "Downloading JBoss5 (not cached)" 
   wget -O $CACHE_DIR/jboss5.zip http://jboss5binary.fynesy.com/jboss-5.1.0.GA-jdk6.zip
-
 fi
 
 echo "Extracting JBoss5"
@@ -26,14 +27,13 @@ mkdir jdk16
 cd jdk16
 tar zxvf $BUILDPACK_CACHE/openjdk-1.6.0_27.tar.gz
 
-
 if [ ! -d "$BUILD_DIR" ]; then
   echo "Build directory [$BUILD_DIR] does not exist, creating"
   mkdir -p "$BUILD_DIR"
 else
   echo "Build directory [$BUILD_DIR] exists"
-  echo "Build directory contents..."
-  ls -lRh $BUILD_DIR
+  #echo "Build directory contents..."
+  #ls -lRh $BUILD_DIR
 fi
 
 if [ ! -d "$CACHE_DIR" ]; then
@@ -46,18 +46,18 @@ fi
 echo "The compile script is at [$0]"
 echo "The build pack is situated at [$BUILD_PACK_DIR]"
 
-echo "Moving to the cache dir..."
-cd "$CACHE_DIR"
-echo "Now in [$(pwd)]"
+#echo "Moving to the cache dir..."
+#cd "$CACHE_DIR"
+#echo "Now in [$(pwd)]"
 
-echo "Directory listing:"
-ls -la
+#echo "Directory listing:"
+#ls -la
 
-echo "Listing Build Pack Directory:"
-ls -la /tmp/buildpacks
+#echo "Listing Build Pack Directory:"
+#ls -la /tmp/buildpacks
 
-echo "Listing Build Pack Cache:"
-ls -la "$BUILDPACK_CACHE"
+#echo "Listing Build Pack Cache:"
+#ls -la "$BUILDPACK_CACHE"
 
 echo "Listing Environment:"
 env
@@ -83,8 +83,8 @@ env
 #echo "CPU Info"
 #cat /proc/cpuinfo
 
-echo "Look for staging_info.yml file"
-cat "$BUILD_DIR/staging_info.yml"
+#echo "Look for staging_info.yml file"
+#cat "$BUILD_DIR/staging_info.yml"
 
 cd ../
 echo "Creating start script"
@@ -106,8 +106,8 @@ echo "Starting Web Server"
 python /home/vcap/app/boot.py /
 
 # Start Web Socket Server
-echo "Starting WebSocketD"
-curl -s https://raw.github.com/dmikusa-pivotal/cf-debug-console/master/debug.sh | bash
+#echo "Starting WebSocketD"
+#curl -s https://raw.github.com/dmikusa-pivotal/cf-debug-console/master/debug.sh | bash
 EOF
 chmod 755 "$BUILD_DIR/start.sh"
 
