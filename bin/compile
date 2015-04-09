@@ -13,7 +13,7 @@ echo "Downloading JBoss5"
 wget -O /home/vcap/app/jboss5.zip http://jboss5binary.fynesy.com/jboss-5.1.0.GA-jdk6.zip
 
 echo "Extracting JBoss5"
-unzip /home/vcap/app/jboss5.zip -d /tmp/staged/app/
+sudo unzip /home/vcap/app/jboss5.zip -d /opt/
 
 
 if [ ! -d "$BUILD_DIR" ]; then
