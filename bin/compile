@@ -16,8 +16,8 @@ echo "Extracting JBoss5"
 cd /tmp
 unzip ./jboss5.zip
 
-echo "Moving JBoss5 to /opt"
-mv jboss-5.1.0.GA /opt/
+echo "Moving JBoss5 to /home/vcap/app"
+mv jboss-5.1.0.GA /home/vcap/app/
 
 
 
