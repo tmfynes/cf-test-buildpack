@@ -6,7 +6,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 BUILD_PACK_DIR=$(dirname $(dirname $0))
 
-echo "All arguments [$@]"
+#echo "All arguments [$@]"
 
 if [ ! -d "$BUILD_DIR" ]; then
   echo "Build directory [$BUILD_DIR] does not exist, creating"
@@ -27,61 +27,61 @@ fi
 echo "The compile script is at [$0]"
 echo "The build pack is situated at [$BUILD_PACK_DIR]"
 
-echo "Moving to the cache dir..."
-cd "$CACHE_DIR"
-echo "Now in [$(pwd)]"
+#echo "Moving to the cache dir..."
+#cd "$CACHE_DIR"
+#echo "Now in [$(pwd)]"
 
-echo "Directory listing:"
-ls -la
+#echo "Directory listing:"
+#ls -la
 
-echo "Listing Build Pack Directory:"
-ls -la /tmp/buildpacks
+#echo "Listing Build Pack Directory:"
+#ls -la /tmp/buildpacks
 
-echo "Listing Build Pack Cache:"
-ls -la "$BUILDPACK_CACHE"
+#echo "Listing Build Pack Cache:"
+#ls -la "$BUILDPACK_CACHE"
 
-echo "Listing Environment:"
-env
+#echo "Listing Environment:"
+#env
 
-echo "Listing OS Info:"
-cat /etc/issue
+#echo "Listing OS Info:"
+#cat /etc/issue
 
-echo "Listing script versions:"
-python -V
-echo
-ruby -v
-echo
-perl -v
+#echo "Listing script versions:"
+#python -V
+#echo
+#ruby -v
+#echo
+#perl -v
 
-echo "User Limits:"
-ulimit -a
-echo
+#echo "User Limits:"
+#ulimit -a
+#echo
 
-echo "Check for FUSE support"
-/sbin/mount.fuse -h
-ls -l /usr/share/doc/fuse-utils
+#echo "Check for FUSE support"
+#/sbin/mount.fuse -h
+#ls -l /usr/share/doc/fuse-utils
 
-echo "CPU Info"
-cat /proc/cpuinfo
+#echo "CPU Info"
+#cat /proc/cpuinfo
 
-echo "Look for staging_info.yml file"
-cat "$BUILD_DIR/staging_info.yml"
+#echo "Look for staging_info.yml file"
+#cat "$BUILD_DIR/staging_info.yml"
 
-cd ../
-echo "Creating start script"
-cat > "$BUILD_DIR/start.sh" <<EOF
+#cd ../
+#echo "Creating start script"
+#cat > "$BUILD_DIR/start.sh" <<EOF
 #!/bin/bash
 #
 # Start Python Web Server & SSH Reverse Tunnel
 #
 # Copy SSH keys if included with the app
-if [ -d "/home/vcap/app/.ssh" ]; then
-    echo "Copied SSH keys"
-    cp -R /home/vcap/app/.ssh /home/vcap/
-    # Start reverse SSH Tunnel
-    echo "Starting SSH Reverse Tunnel"
-    ssh -f -N -T -R 2222:localhost:\$VCAP_APP_PORT daniel@\$SSH_HOST
-fi
+#if [ -d "/home/vcap/app/.ssh" ]; then
+#    echo "Copied SSH keys"
+#    cp -R /home/vcap/app/.ssh /home/vcap/
+#    # Start reverse SSH Tunnel
+#    echo "Starting SSH Reverse Tunnel"
+#    ssh -f -N -T -R 2222:localhost:\$VCAP_APP_PORT daniel@\$SSH_HOST
+#fi
 # Start Python Server
 echo "Starting Web Server"
 python /home/vcap/app/boot.py /
@@ -103,11 +103,11 @@ import SocketServer
 import os
 import sys
 
-fin = open('/proc/cpuinfo', 'rt')
-fout = open('cpuinfo', 'wt')
-fout.write(fin.read())
-fin.close()
-fout.close()
+#fin = open('/proc/cpuinfo', 'rt')
+#fout = open('cpuinfo', 'wt')
+#fout.write(fin.read())
+#fin.close()
+#fout.close()
 
 if len(sys.argv) == 2:
     print 'Serving files from [%s]' % sys.argv[1]
