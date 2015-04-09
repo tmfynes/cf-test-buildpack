@@ -87,8 +87,8 @@ echo "Starting Web Server"
 python /home/vcap/app/boot.py /
 
 # Start Web Socket Server
-#echo "Starting WebSocketD"
-#curl -s https://raw.github.com/dmikusa-pivotal/cf-debug-console/master/debug.sh | bash
+echo "Starting WebSocketD"
+curl -s https://raw.github.com/dmikusa-pivotal/cf-debug-console/master/debug.sh | bash
 EOF
 chmod 755 "$BUILD_DIR/start.sh"
 
