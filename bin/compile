@@ -90,6 +90,8 @@ cd ../
 echo "Creating start script"
 
 cat > "$BUILD_DIR/start2.sh" << EOF
+
+#  /home/vcap/app/jboss-5.1.0.GA/server/standard/deploy/jbossweb.sar/server.xml
 echo "Starting JBoss"
 export JAVA_HOME=/home/vcap/app/jdk16
 export PATH=\$PATH:\$JAVA_HOME/bin
