@@ -14,10 +14,10 @@ wget -O /tmp/jboss5.zip http://jboss5binary.fynesy.com/jboss-5.1.0.GA-jdk6.zip
 
 echo "Extracting JBoss5"
 cd /tmp
-unzip ./jboss5.zip
+unzip ./jboss5.zip -d /home/vcap/app/
 
-echo "Moving JBoss5 to /home/vcap/app"
-mv jboss-5.1.0.GA /home/vcap/app/
+#echo "Moving JBoss5 to /home/vcap/app"
+#mv jboss-5.1.0.GA /home/vcap/app/
 
 
 
