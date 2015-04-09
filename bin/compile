@@ -9,12 +9,16 @@ BUILD_PACK_DIR=$(dirname $(dirname $0))
 #echo "All arguments [$@]"
 
 
-#echo "Downloading JBoss5"
+echo "Downloading JBoss5"
 wget -O /tmp/jboss5.zip http://jboss5binary.fynesy.com/jboss-5.1.0.GA-jdk6.zip
 
-#echo "Extracting JBoss5"
+echo "Extracting JBoss5"
 cd /tmp
 unzip ./jboss5.zip
+
+echo "Moving JBoss5 to /opt"
+mv jboss-5.1.0.GA /opt/
+
 
 
 
