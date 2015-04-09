@@ -88,6 +88,15 @@ env
 
 cd ../
 echo "Creating start script"
+
+cat > "$BUILD_DIR/start2.sh" << EOF
+echo "Starting JBoss"
+export JAVA_HOME=/home/vcap/app/jdk16
+export PATH=$PATH:$JAVA_HOME/bin
+export JBossHome=/home/vcap/app/jboss-5.1.0.GA
+$JBossHome/bin/run.sh -c standard -b 0.0.0.0 -Djboss.http.port=$PORT
+EOF
+
 cat > "$BUILD_DIR/start.sh" <<EOF
 #!/bin/bash
 #
@@ -110,6 +119,8 @@ python /home/vcap/app/boot.py /
 #curl -s https://raw.github.com/dmikusa-pivotal/cf-debug-console/master/debug.sh | bash
 EOF
 chmod 755 "$BUILD_DIR/start.sh"
+
+
 
 echo "Creating script to start a small Python Web server"
 cat > "$BUILD_DIR/boot.py" <<EOF
