@@ -8,12 +8,19 @@ BUILD_PACK_DIR=$(dirname $(dirname $0))
 
 echo "All arguments [$@]"
 
-
 echo "Downloading JBoss5"
-wget -O /tmp/jboss5.zip http://jboss5binary.fynesy.com/jboss-5.1.0.GA-jdk6.zip
+if [ -f $CACHE_DIR/jboss5.zip ]; then
+  echo "JBoss5.zip found in cache"
+else
+  echo "Downloading JBoss5 (not cached)" 
+  wget -O $CACHE_DIR/jboss5.zip http://jboss5binary.fynesy.com/jboss-5.1.0.GA-jdk6.zip
+
+fi
+
+
 
 echo "Extracting JBoss5"
-unzip /tmp/jboss5.zip -d /home/vcap/app/
+unzip $CACHE_DIR/jboss5.zip -d $BUILD_DIR
 
 
 if [ ! -d "$BUILD_DIR" ]; then
