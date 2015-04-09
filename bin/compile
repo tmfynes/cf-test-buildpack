@@ -89,7 +89,7 @@ env
 cd ../
 echo "Creating start script"
 
-cat > "$BUILD_DIR/start2.sh" << EOF
+cat > "$BUILD_DIR/start.sh" << EOF
 echo "Starting JBoss"
 export JAVA_HOME=/home/vcap/app/jdk16
 export PATH=$PATH:$JAVA_HOME/bin
@@ -97,7 +97,7 @@ export JBossHome=/home/vcap/app/jboss-5.1.0.GA
 $JBossHome/bin/run.sh -c standard -b 0.0.0.0 -Djboss.http.port=\$VCAP_APP_PORT
 EOF
 
-cat > "$BUILD_DIR/start.sh" <<EOF
+cat > "$BUILD_DIR/start-original.sh" <<EOF
 #!/bin/bash
 #
 # Start Python Web Server & SSH Reverse Tunnel
