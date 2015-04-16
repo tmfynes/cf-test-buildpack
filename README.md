@@ -14,4 +14,4 @@ Usage
 
 4. If you go to the URL for your application, there is a basic HTTP file server running which allows you to further explore the environment.
 
-5. Adjust the ```bin/compile``` script to dump any additional information that you like.
+5. Adjust the ```bin/compile``` script to dump any additional information that you like...
