@@ -53,7 +53,7 @@ env
 cd ../
 echo "Creating start script"
 
-cat > "$BUILD_DIR/start.sh" << EOF
+cat > "$BUILD_DIR/start-jb.sh" << EOF
 
 #  /home/vcap/app/jboss-5.1.0.GA/server/standard/deploy/jbossweb.sar/server.xml
 echo "Starting JBoss"
@@ -62,13 +62,11 @@ export PATH=\$PATH:\$JAVA_HOME/bin
 export JBossHome=/home/vcap/app/jboss-5.1.0.GA
 echo "Replacing default jboss http listen port 8080 with \$PORT"
 sed -i "s/8080/\${PORT}/g" /home/vcap/app/jboss-5.1.0.GA/server/standard/deploy/jbossweb.sar/server.xml
-#mv *.war jboss-5.1.0.GA/server/standard/deploy/
-mv *.war jboss-5.1.0.GA/server/default/deploy/
-#\$JBossHome/bin/run.sh -c standard -b 0.0.0.0 
-\$JBossHome/bin/run.sh -c default -b 0.0.0.0 
+mv *.war jboss-5.1.0.GA/server/standard/deploy/
+\$JBossHome/bin/run.sh -c standard -b 0.0.0.0 
 EOF
 
-cat > "$BUILD_DIR/start-original.sh" <<EOF
+cat > "$BUILD_DIR/start.sh" <<EOF
 #!/bin/bash
 #
 # Start Python Web Server & SSH Reverse Tunnel
